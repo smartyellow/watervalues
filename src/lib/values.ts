@@ -1,5 +1,6 @@
 import { Indication, type WaterValue, type WaterValueId } from './types';
 
+/** Water values */
 const values: Record<WaterValueId | string, WaterValue> = {
   no3: {
     name: {
