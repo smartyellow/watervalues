@@ -58,7 +58,6 @@ export function getIndicationFromValue(
   value: number
 ): Indication {
   const total = measure.range.length;
-  const { max } = measureMinMax(measure);
   let point = -1;
   let indication: Indication | null = null;
 
