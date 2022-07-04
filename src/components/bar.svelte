@@ -3,7 +3,6 @@
   import { generateCssGradient } from '../css';
   import type { LeftOrRight, WaterMeasure, WaterMeasureId } from '../types';
   import measures from '../measures';
-  import './bar.scss';
   import { colors, darkenIfMandatory } from '../color';
 
   /** The water measure id. */
@@ -59,3 +58,5 @@
     {/if}
   </div>
 </div>
+
+<style lang="scss" src="./bar.scss"></style>
