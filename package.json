@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/smartyellow/watervalues/issues"
   },
-  "homepage": "https://github.com/smartyellow/watervalues#readme",
+  "homepage": "https://oss.smartyellow.nl/watervalues/",
   "devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
