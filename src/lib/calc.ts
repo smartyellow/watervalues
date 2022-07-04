@@ -1,4 +1,4 @@
-import type { Indication, WaterMeasure } from './types';
+import type { Indication, WaterMeasure } from './types.js';
 
 /**
  * Get the minimum and maximum from a {@link WaterMeasure}
@@ -23,7 +23,7 @@ export function measureMinMax(measure: WaterMeasure): {
 
 /**
  * Convert a value to percentage
- * @param measure {@link WaterMeasure}
+ * @param measure Water measure
  * @param value Water value (e.g. `7.4`)
  * @returns `val` in percentage format from 0 through 100
  *

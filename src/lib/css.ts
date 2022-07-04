@@ -1,6 +1,6 @@
 import { calculatePercentage } from './calc';
 import { colors } from './color';
-import type { WaterMeasure } from './types';
+import type { WaterMeasure } from './types.js';
 
 /**
  * Build the CSS gradient code for the given water type

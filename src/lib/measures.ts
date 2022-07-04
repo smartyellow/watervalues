@@ -1,4 +1,4 @@
-import { Indication, type WaterMeasure, type WaterMeasureId } from './types';
+import { Indication, type WaterMeasure, type WaterMeasureId } from './types.js';
 
 /** Water values */
 const measures: Record<WaterMeasureId | string, WaterMeasure> = {

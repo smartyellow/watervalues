@@ -1,5 +1,5 @@
 import { darken, getContrast } from 'color2k';
-import { Indication } from './types';
+import { Indication } from './types.js';
 
 /** {@link Indication}s with CSS color values */
 export const colors: Record<Indication, string> = {

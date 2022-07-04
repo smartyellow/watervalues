@@ -1,38 +1,11 @@
-# create-svelte
+# watervalues
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+JavaScript calculation methods and indications for the water values of your aquarium. For the browser and Node.js.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
+```
+npm install watervalues
 ```
 
-## Developing
+## Supported measures
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<table><thead><th>ID</th><th>Name</th><th>Range</th></thead><tbody><tr><td><code>no3</code></td><td>Nitrate</td><td>0 — 100<ul><li>&gt;0: green</li><li>&gt;50: yellow</li><li>&gt;60: red</li><li>&gt;100: red</li></ul></td></tr><tr><td><code>no2</code></td><td>Nitrite</td><td>0 — 10<ul><li>&gt;0: green</li><li>&gt;0.5: yellow</li><li>&gt;1: red</li><li>&gt;10: red</li></ul></td></tr><tr><td><code>gh</code></td><td>GH</td><td>4 — 15<ul><li>&gt;4: red</li><li>&gt;7: yellow</li><li>&gt;15: green</li></ul></td></tr><tr><td><code>kh</code></td><td>KH</td><td>3 — 10<ul><li>&gt;3: red</li><li>&gt;7: yellow</li><li>&gt;10: green</li></ul></td></tr><tr><td><code>ph</code></td><td>PH</td><td>6.4 — 7.6<ul><li>&gt;6.4: red</li><li>&gt;6.9: yellow</li><li>&gt;7.6: green</li></ul></td></tr><tr><td><code>chlorine</code></td><td>Chlorine</td><td>0 — 3<ul><li>&gt;0: green</li><li>&gt;0.5: red</li><li>&gt;3: red</li></ul></td></tr></tbody></table>
