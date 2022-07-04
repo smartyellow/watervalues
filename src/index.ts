@@ -1,4 +1,3 @@
-export { default as WaterMeasureBar } from './components/bar.svelte';
 export { calculatePercentage, getIndicationFromValue } from './calc.js';
 export { colors, darkenIfMandatory } from './color.js';
 export { generateCssGradient } from './css.js';
