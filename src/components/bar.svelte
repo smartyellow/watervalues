@@ -4,7 +4,7 @@
   import type { LeftOrRight, WaterMeasure, WaterMeasureId } from '../types';
   import measures from '../measures';
   import './bar.scss';
-  import { colors, darkenIfMandatory } from '$lib/color';
+  import { colors, darkenIfMandatory } from '../color';
 
   /** The water measure id. */
   export let measureId: WaterMeasureId | string;

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Bar from '$lib/components/bar.svelte';
-  import { measureMinMax } from '$lib/calc';
-  import measures from '$lib/measures';
+  import Bar from '../../src/components/bar.svelte';
+  import { measureMinMax } from '../../src/calc';
+  import measures from '../../src/measures';
 
   function capitalise(string: string): string {
     return string.charAt(0).toUpperCase() + string.slice(1);
