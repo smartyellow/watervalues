@@ -17,7 +17,11 @@ export function calculatePercentage(
 ): number {
   const { min, max } = valueMinMax(waterValue);
   const spread = max - min;
-  const percentage = (val - min) / spread * 100;
+  let percentage = (val - min) / spread * 100;
+
+  if (percentage > 100) percentage = 100;
+  if (percentage < 0) percentage = 0;
+
   return percentage;
 }
 
