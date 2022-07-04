@@ -1,7 +1,10 @@
 {
-	"name": "watervalues",
-	"version": "0.0.1",
-	"scripts": {
+  "name": "watervalues",
+  "version": "1.0.0",
+  "description": "JavaScript calculation methods and indications for the water values of your aquarium",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
 		"docs": "typedoc --out docs-site src/lib/index.ts",
@@ -13,7 +16,21 @@
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
-	"devDependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartyellow/watervalues.git"
+  },
+  "keywords": [
+    "aquarium"
+  ],
+  "author": "Romein van Buren",
+  "license": "MIT",
+  "types": "./package/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/smartyellow/watervalues/issues"
+  },
+  "homepage": "https://github.com/smartyellow/watervalues#readme",
+  "devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
@@ -33,6 +50,5 @@
 		"tslib": "^2.3.1",
 		"typedoc": "^0.23.5",
 		"typescript": "^4.7.2"
-	},
-	"type": "module"
+	}
 }
