@@ -1,11 +1,11 @@
 <script lang="ts">
   import { calculatePercentage, generateCssGradient } from '../css';
-  import type { LeftOrRight, WaterValueId } from '../types';
-  import values from '../values';
+  import type { LeftOrRight, WaterMeasureId } from '../types';
+  import measures from '../measures';
   import './bar.scss';
 
-  /** The water value type id. */
-  export let valueId: WaterValueId | string;
+  /** The water measure id. */
+  export let measureId: WaterMeasureId | string;
 
   /** The current water value to display. */
   export let value: number | undefined = undefined;
@@ -24,12 +24,12 @@
 
   <div
     class="bar"
-    style:background={generateCssGradient(values[valueId])}
+    style:background={generateCssGradient(measures[measureId])}
   >
     {#if showMarker && value}
       <div
         class="marker"
-        style:left="{calculatePercentage(values[valueId], value)}%"
+        style:left="{calculatePercentage(measures[measureId], value)}%"
       ></div>
     {/if}
   </div>

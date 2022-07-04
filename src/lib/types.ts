@@ -1,4 +1,4 @@
-export type WaterValueId = 'no2' | 'no3' | 'gh' | 'kh' | 'ph' | 'chlorine';
+export type WaterMeasureId = 'no2' | 'no3' | 'gh' | 'kh' | 'ph' | 'chlorine';
 export type LeftOrRight = 'left' | 'right';
 
 /** Color indication, from best to worst */
@@ -10,8 +10,8 @@ export enum Indication {
 };
 
 /** A water value measure */
-export interface WaterValue {
-  /** Localised name of the water value */
+export interface WaterMeasure {
+  /** Localised name of the water measure */
   name: {
     nl: string;
     en: string;

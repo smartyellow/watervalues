@@ -1,7 +1,7 @@
-import { Indication, type WaterValue, type WaterValueId } from './types';
+import { Indication, type WaterMeasure, type WaterMeasureId } from './types';
 
 /** Water values */
-const values: Record<WaterValueId | string, WaterValue> = {
+const measures: Record<WaterMeasureId | string, WaterMeasure> = {
   no3: {
     name: {
       en: 'nitrate',
@@ -77,4 +77,4 @@ const values: Record<WaterValueId | string, WaterValue> = {
   },
 };
 
-export default values;
+export default measures;

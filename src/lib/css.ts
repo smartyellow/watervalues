@@ -1,9 +1,9 @@
 import { colors } from './constants';
-import type { WaterValue } from './types';
+import type { WaterMeasure } from './types';
 
 /**
- * Get the minimum and maximum from a {@link WaterValue}
- * @param value Water value to get the min and max values from
+ * Get the minimum and maximum from a {@link WaterMeasure}
+ * @param measure Water measure to get the min and max values from
  * @returns Object with `min` and `max`
  *
  * @example
@@ -12,20 +12,20 @@ import type { WaterValue } from './types';
  * //=> { min: 4, max: 15 }
  * ```
  */
-export function valueMinMax(value: WaterValue): {
+export function valueMinMax(measure: WaterMeasure): {
   min: number;
   max: number;
 } {
-  value.range.sort((a, b) => a.value - b.value);
-  const min = value.range[0].value;
-  const max = value.range[value.range.length - 1].value;
+  measure.range.sort((a, b) => a.value - b.value);
+  const min = measure.range[0].value;
+  const max = measure.range[measure.range.length - 1].value;
   return { min, max };
 }
 
 /**
  * Convert a value to percentage
- * @param waterValue {@link WaterValue}
- * @param val Water value (e.g. `7.4`)
+ * @param measure {@link WaterMeasure}
+ * @param value Water value (e.g. `7.4`)
  * @returns `val` in percentage format from 0 through 100
  *
  * @example
@@ -35,12 +35,12 @@ export function valueMinMax(value: WaterValue): {
  * ```
  */
 export function calculatePercentage(
-  waterValue: WaterValue,
-  val: number
+  measure: WaterMeasure,
+  value: number
 ): number {
-  const { min, max } = valueMinMax(waterValue);
+  const { min, max } = valueMinMax(measure);
   const spread = max - min;
-  let percentage = (val - min) / spread * 100;
+  let percentage = (value - min) / spread * 100;
 
   if (percentage > 100) percentage = 100;
   if (percentage < 0) percentage = 0;
@@ -50,7 +50,7 @@ export function calculatePercentage(
 
 /**
  * Build the CSS gradient code for the given water type
- * @param value {@link WaterValue}
+ * @param measure {@link WaterMeasure}
  * @returns CSS gradient code
  *
  * @example
@@ -59,12 +59,12 @@ export function calculatePercentage(
  * //=> linear-gradient(90deg, green 0%, yellow 5%, red 10%, red 100%)
  * ```
  */
-export function generateCssGradient(value: WaterValue): string {
-  value.range.sort((a, b) => a.value - b.value);
+export function generateCssGradient(measure: WaterMeasure): string {
+  measure.range.sort((a, b) => a.value - b.value);
   let css = 'linear-gradient(90deg,';
 
-  for (const point of value.range) {
-    const percentage = calculatePercentage(value, point.value);
+  for (const point of measure.range) {
+    const percentage = calculatePercentage(measure, point.value);
     const color = colors[point.indication];
     css += `${color} ${percentage}%,`;
   }
