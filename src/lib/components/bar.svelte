@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { calculatePercentage, generateCssGradient } from '../css';
+  import { calculatePercentage } from '../calc';
+  import { generateCssGradient } from '../css';
   import type { LeftOrRight, WaterMeasure, WaterMeasureId } from '../types';
   import measures from '../measures';
   import './bar.scss';

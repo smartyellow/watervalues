@@ -1,6 +1,6 @@
 <script lang="ts">
   import Bar from '$lib/components/bar.svelte';
-  import { valueMinMax } from '$lib/css';
+  import { valueMinMax } from '$lib/calc';
   import measures from '$lib/measures';
 
   function capitalise(string: string): string {
