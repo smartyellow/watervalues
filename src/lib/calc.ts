@@ -1,4 +1,4 @@
-import type { WaterMeasure } from './types';
+import type { Indication, WaterMeasure } from './types';
 
 /**
  * Get the minimum and maximum from a {@link WaterMeasure}
@@ -7,11 +7,11 @@ import type { WaterMeasure } from './types';
  *
  * @example
  * ```js
- * valueMinMax(values.gh);
+ * measureMinMax(values.gh);
  * //=> { min: 4, max: 15 }
  * ```
  */
-export function valueMinMax(measure: WaterMeasure): {
+export function measureMinMax(measure: WaterMeasure): {
   min: number;
   max: number;
 } {
@@ -37,7 +37,7 @@ export function calculatePercentage(
   measure: WaterMeasure,
   value: number
 ): number {
-  const { min, max } = valueMinMax(measure);
+  const { min, max } = measureMinMax(measure);
   const spread = max - min;
   let percentage = (value - min) / spread * 100;
 
@@ -45,4 +45,35 @@ export function calculatePercentage(
   if (percentage < 0) percentage = 0;
 
   return percentage;
+}
+
+/**
+ * Get the {@link Indication} from a {@link WaterMeasure} and a value.
+ * @param measure Water measure object
+ * @param value Value to get indication for
+ * @returns Indication
+ */
+export function getIndicationFromValue(
+  measure: WaterMeasure,
+  value: number
+): Indication {
+  const total = measure.range.length;
+  const { max } = measureMinMax(measure);
+  let point = -1;
+  let indication: Indication | null = null;
+
+  while (!indication) {
+    point++;
+
+    if (point === total) {
+      indication = measure.range[total - 1].indication;
+      break;
+    }
+
+    if (value <= measure.range[point].value) {
+      indication = measure.range[point].indication;
+    }
+  }
+
+  return indication;
 }

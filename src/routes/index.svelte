@@ -1,6 +1,6 @@
 <script lang="ts">
   import Bar from '$lib/components/bar.svelte';
-  import { valueMinMax } from '$lib/calc';
+  import { measureMinMax } from '$lib/calc';
   import measures from '$lib/measures';
 
   function capitalise(string: string): string {
@@ -17,12 +17,13 @@
 <h1>Aquarium water values</h1>
 
 {#each Object.entries(measures) as [ id, measure ]}
-  {@const mm = valueMinMax(measure)}
+  {@const mm = measureMinMax(measure)}
   <p>{capitalise(measure.name.en)}</p>
   <p>
     <Bar
       measureId={id}
       value={randomFloat(mm.min, mm.max)}
+      colorMarker
     />
   </p>
 {/each}

@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { calculatePercentage } from '../calc';
+  import { calculatePercentage, getIndicationFromValue } from '../calc';
   import { generateCssGradient } from '../css';
   import type { LeftOrRight, WaterMeasure, WaterMeasureId } from '../types';
   import measures from '../measures';
   import './bar.scss';
+  import { colors, darkenIfMandatory } from '$lib/color';
 
   /** The water measure id. */
   export let measureId: WaterMeasureId | string;
@@ -13,7 +14,8 @@
    *
    * Can be omitted if measureId is set.
    */
-  export let measure: WaterMeasure | undefined = measureId ? measures[measureId] : undefined;
+  // @ts-ignore
+  export let measure: WaterMeasure = measureId && measures[measureId];
 
   /** The current water value to display. */
   export let value: number | undefined = undefined;
@@ -24,14 +26,25 @@
   /** Show a marker on the bar that indicates the value. */
   export let showMarker = true;
 
-  if (!measureId && !measure) console.warn(
+  /** Color the marker according to the indication of the given value. */
+  export let colorMarker = false;
+
+  $: if (!measureId && !measure) console.warn(
     'Water value bar: at least one of `measureId` and `measure` must be set.'
+  );
+  $: labelColor = (
+    (value || value === 0) && colorMarker
+    ? darkenIfMandatory(colors[getIndicationFromValue(measure, value)])
+    : undefined
   );
 </script>
 
 <div class="watervaluebar">
   {#if value}
-    <div class="label {labelPosition}">{value}</div>
+    <div
+      class="label {labelPosition}"
+      style:color={labelColor}
+    >{value}</div>
   {/if}
 
   <div
